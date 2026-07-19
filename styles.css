@@ -119,6 +119,10 @@ a:hover { text-decoration: underline; }
   display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 3vw, 1.6rem);
   align-items: stretch;
 }
+.grid3 {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2.4vw, 1.5rem);
+  align-items: stretch;
+}
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -139,6 +143,7 @@ a:hover { text-decoration: underline; }
   font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em;
   margin-bottom: .85rem;
 }
+.badge svg { width: 23px; height: 23px; }
 .card h3 { font-size: 1.32rem; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; line-height: 1.2; }
 .card .struct {
   margin-top: .35rem; font-size: .82rem; font-weight: 600; letter-spacing: .04em;
@@ -294,17 +299,98 @@ a:hover { text-decoration: underline; }
 .doc-foot a { color: var(--navy-700); font-weight: 500; }
 
 /* ========================================================================
+   Perspectives page (tabbed lens view)
+   ======================================================================== */
+
+.wrap-narrow { max-width: 800px; margin: 0 auto; padding: 0 clamp(1.1rem, 4vw, 2rem); }
+
+.topbar-links { display: inline-flex; gap: .6rem; }
+.topbar-links a {
+  border: 1px solid rgba(255,255,255,.24); padding: .34rem .75rem; border-radius: 999px;
+  font-size: .84rem;
+}
+.topbar-links a:hover { background: rgba(255,255,255,.1); text-decoration: none; }
+
+.doc-head { padding: clamp(1.7rem, 5vw, 2.8rem) 0 .3rem; }
+.doc-head h1 {
+  font-size: clamp(1.9rem, 5vw, 2.6rem); font-weight: 800; color: var(--navy);
+  letter-spacing: -0.02em; line-height: 1.1;
+}
+.doc-sub { margin-top: .35rem; font-size: clamp(1.05rem, 2.6vw, 1.3rem); color: var(--red); font-weight: 700; }
+
+#perspectives { padding-bottom: 3rem; }
+#perspectives .loading { color: var(--faint); padding: 2rem 0; }
+#perspectives strong { color: var(--navy); font-weight: 700; }
+#perspectives em { font-style: italic; }
+#perspectives a { color: var(--red); text-decoration: underline; text-underline-offset: 2px; }
+
+.intro { color: var(--ink); margin: 1rem 0; font-size: 1.05rem; }
+.intro:first-of-type { margin-top: 1.4rem; }
+
+.tabs { margin-top: 1.8rem; }
+.tablist {
+  display: flex; gap: .25rem;
+  border-bottom: 2px solid var(--border);
+  overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.tablist::-webkit-scrollbar { display: none; }
+.tab {
+  appearance: none; -webkit-appearance: none; background: none; border: none; cursor: pointer;
+  font: inherit; font-weight: 600; font-size: 1.02rem; color: var(--muted);
+  padding: .7rem 1.1rem; border-bottom: 3px solid transparent; margin-bottom: -2px;
+  white-space: nowrap; border-radius: 8px 8px 0 0;
+  transition: color .15s ease, background .15s ease, border-color .15s ease;
+}
+.tab:hover { color: var(--navy); background: var(--navy-050); }
+.tab[aria-selected="true"] { color: var(--navy); border-bottom-color: var(--red); }
+.tab:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; border-radius: 6px; }
+
+.panels { padding-top: 1.5rem; }
+.tabpanel:focus-visible { outline: 2px solid var(--navy); outline-offset: 5px; border-radius: 10px; }
+
+.lens-desc { color: var(--muted); font-size: .95rem; font-style: italic; margin: 0 0 1.4rem; }
+
+.lens-field { margin-bottom: 1.35rem; }
+.lens-label {
+  display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--red); margin-bottom: .4rem;
+}
+.lens-body { color: var(--ink); line-height: 1.6; }
+
+.lens-question {
+  margin-top: 1.7rem; padding: 1.15rem 1.3rem;
+  background: var(--navy-050); border: 1px solid #d5e0f0; border-left: 4px solid var(--navy);
+  border-radius: var(--radius-sm);
+}
+.lens-question .lens-label { color: var(--navy); }
+.lens-q-text { font-size: 1.12rem; font-style: italic; color: var(--navy); font-weight: 500; margin: 0; line-height: 1.5; }
+
+.lens-footer {
+  margin-top: 2.2rem; padding-top: 1.2rem; border-top: 1px solid var(--border);
+  color: var(--faint); font-size: .9rem; font-style: italic;
+}
+.lens-fallback { color: var(--faint); font-style: italic; margin-bottom: 1rem; }
+
+/* ========================================================================
    Responsive
    ======================================================================== */
+
+/* Three cards get cramped at 3-across on narrow laptops/tablets, so stack them. */
+@media (max-width: 900px) {
+  .grid3 { grid-template-columns: 1fr; }
+}
 
 @media (max-width: 720px) {
   body { font-size: 16px; }
   .grid2 { grid-template-columns: 1fr; }
   .reviewer { text-align: left; }
+  .tab { font-size: .96rem; padding: .65rem .85rem; }
 }
 
 @media print {
   .topbar, .docnote, .doc-foot { display: none; }
   body { background: #fff; }
   .doc { max-width: none; }
+  .tabpanel[hidden] { display: block !important; }
+  .lens-footer { break-inside: avoid; }
 }
