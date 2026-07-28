@@ -17,7 +17,7 @@ The goal is not to restrict. It is to be responsible. When a group goes external
 Two principles hold the whole thing together:
 
 1. **Mitigate risk while enabling innovation.** Too little structure breeds impulsive errors; too much kills the autonomy and creativity students value. This framework aims for the middle: clear guidelines, not bureaucracy.
-2. **There needs to be a professional in the room.** A faculty champion is what makes an engagement sustainable and accountable. Faculty involvement is self-selecting (nobody is forced to advise), but if a group does external work, this framework defines what that partnership requires.
+2. **There needs to be a faculty adviser in the room.** A faculty champion is what makes an engagement sustainable and accountable. Faculty involvement is self-selecting (nobody is forced to advise), but if a group does external work, this framework defines what that partnership requires.
 
 **Dual mandate.** Student development and external-partner impact are co-equal. Neither may be optimized into the ground, and "I am here to learn" never lowers the professional bar.
 
@@ -29,7 +29,7 @@ Two principles hold the whole thing together:
 
 ## 2. The Faculty Role (specified first, because everything depends on it)
 
-The professional role is the load-bearing element, so it is defined before anything else. It is a small set of **non-delegable gates** plus recorded judgment, designed so students run day-to-day operations while faculty holds the boundary.
+The faculty adviser role is the load-bearing element, so it is defined before anything else. It is a small set of **non-delegable gates** plus recorded judgment, designed so students run day-to-day operations while faculty holds the boundary.
 
 **The four hard gates.** Four categories always return to the faculty champion, at any point in the lifecycle:
 
@@ -46,7 +46,7 @@ Rationale: students have essentially zero experience in these four areas, so the
 
 **Escalation fails safe.** Every role has a written escalation path terminating at the faculty champion. When a student leadership seat is vacant, its oversight collapses **upward**, never sideways and never into nothing.
 
-**Faculty is not a bottleneck.** These gates only stay sustainable on top of a real student-supervision layer. If the student supervision is thin, the professional absorbs the gap and becomes the bottleneck. Building the student supervision layer is part of standing up any group.
+**Faculty is not a bottleneck.** These gates only stay sustainable on top of a real student-supervision layer. If the student supervision is thin, the faculty adviser absorbs the gap and becomes the bottleneck. Building the student supervision layer is part of standing up any group.
 
 ---
 
