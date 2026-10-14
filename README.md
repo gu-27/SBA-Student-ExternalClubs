@@ -1,85 +1,49 @@
-# SBA Student External Engagement Framework
+# SBA Student Group Standards
 
-A small review site for Gonzaga's **School of Business Administration**. It presents a
-policy framework for how student groups (clubs, consulting groups, and the like) should
-engage with external entities (clients, partners, and the public) while representing the
-university.
+The School of Business Administration's standard for how student groups (clubs, consulting
+groups, and the like) operate: what they may do, what planning each level of work requires, and
+who approves it.
 
-The framework has been drafted in **two competing structural versions**, and this site exists
-so that administrators can read them and tell us **which architecture they prefer**. The two
-versions are identical in philosophy, faculty role, requirements, and planning process; they
-differ only in **how the framework is organized**, and that single difference lives in
-**Section 3** of each document. A third page, the Perspectives view, is offered alongside them.
+**Live:** https://gu-27.github.io/SBA-Student-ExternalClubs/ — shared by direct link and
+carries `noindex`, so it will not turn up in search.
 
-## The three cards
+## What the page covers
 
-- **Option A – Engagement Tiers.** Sorts engagements by what the group is doing and builds
-  three escalating tiers (exposure/public voice, research/consulting, binding/NDA). Reads as
-  an on-ramp for a new group.
-- **Option B – One Lifecycle + Classification.** Runs every engagement through a single
-  lifecycle and manages risk by classifying information into sensitivity levels, scaling
-  oversight with exposure.
-- **Perspectives – Three Lenses.** Reads the framework from three seats (administrator,
-  faculty, student), showing what each one gains and risks. It is a way to read the framework,
-  not a competing structure: it pairs with Option A or Option B. This is stated plainly near
-  the top of the Perspectives page, which presents the three lenses as an accessible tabbed
-  view (one lens visible at a time; arrow-key, click, and swipe navigation).
+- **Tiers of engagement.** Three levels, from internal events to client projects. Each tier
+  reaches further outside the school, so each raises the planning and oversight to match.
+  - *Tier 1 · Internal* — students working with students inside the business school.
+  - *Tier 2 · External exposure* — guest speakers, outside trainers, public promotion. Goes
+    through ZAG Activities; the dean approves.
+  - *Tier 3 · External business* — work for an outside organization. The faculty advisor
+    approves the client and the scope before anything is confirmed.
+- **The process.** The same five steps for every activity; what changes by tier is how much the
+  plan has to cover. A tabbed view shows what each tier asks for.
+- **Roles and standards.** Students, faculty advisor, and the School of Business, plus the
+  standards that hold at every tier: social media, email, name and logo, university resources,
+  information and files, updates and records.
 
-The landing page summarizes all three as equal peers, without favoring any, and links to each
-full page.
+The governing principle: **freedom is earned by showing a plan.**
 
-## Structure
+## History
 
-```
-SBA-Student-ExternalClubs/
-├── index.html          Landing page: shared purpose + three equal peer cards
-├── option-a.html       Reader page for Option A (renders content/option-a.md)
-├── option-b.html       Reader page for Option B (renders content/option-b.md)
-├── perspectives.html   Tabbed lens view (built from content/perspectives.md)
-├── styles.css          Shared styles (SBA navy/red palette, Inter, mobile-first)
-├── render.js           Fetches a source .md file and renders it into a reader page
-├── perspectives.js     Parses perspectives.md into the accessible tab interface
-├── content/
-│   ├── option-a.md     Source of truth for Option A
-│   ├── option-b.md     Source of truth for Option B
-│   └── perspectives.md Source of truth for the Perspectives view
-└── README.md
-```
+This repo previously hosted a **review site** that presented the framework three ways — Option A
+(engagement tiers), Option B (one lifecycle plus information classification), and a Perspectives
+lens view — so administrators could say which structure they preferred.
 
-**The markdown files in `content/` are the single source of truth.** Every page is a thin
-client of its `.md`, rendered in the browser with
-[marked](https://github.com/markedjs/marked) (loaded from a CDN):
+That decision has been made. The tier structure won, and this single page is the standard that
+resulted. The three review pages and their markdown sources were removed on 2026-10-14 and
+remain in git history at commit `a42fcd5`.
 
-- Options A and B render their whole document as-is (`render.js`).
-- Perspectives (`perspectives.js`) parses its markdown, which has a regular shape (three
-  `## The X Lens` sections, each with an opportunity, exposure, considerations, reframe, and
-  guiding question), into three tabs. If that shape ever fails to parse, the page falls back
-  to rendering the whole document so no content is lost.
+## Build
 
-To change framework text, edit the markdown and the pages update automatically. The
-landing-page copy lives in `index.html`.
+One self-contained `index.html`: no build step, no framework, no dependencies to install. Styles
+and the tab script are inline.
 
-## Stack
+**Brand:** Gonzaga academic identity. Navy `#041E42` dominant, Gonzaga red `#C8102E` as a
+sparing accent, silver neutral. Official GU typography through Adobe Typekit — Adelle for
+headings, Proxima Nova for body and UI — with Figtree from Google Fonts as the free fallback.
 
-Static HTML, CSS, and vanilla JS. No build step and no framework: for a small review site
-this is simpler and more portable than a full toolchain, and it matches the house
-static-first convention. Intended to deploy on **Cloudflare Pages** (root directory, no build
-command); currently served via GitHub Pages.
+**Local preview:** open `index.html` directly, or `python3 -m http.server 8888`.
 
-## Local preview
-
-The reader pages use `fetch()` to load the markdown, which browsers block over `file://`, so
-serve the folder over HTTP:
-
-```bash
-python3 -m http.server 8888
-# then open http://localhost:8888/
-```
-
-## Notes
-
-- Framework content is reproduced verbatim from the three source documents; nothing was
-  invented or added. Dash-character glitches in the originals were normalized, and em-dashes
-  are avoided in the site copy.
-- Palette and type follow the Gonzaga SBA academic identity: navy dominant, red accent,
-  Inter throughout.
+**Deploy:** commit and push to `main`. GitHub Pages serves the repo root and rebuilds
+automatically, usually live within a minute.

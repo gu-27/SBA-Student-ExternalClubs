@@ -1,169 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student External Engagement Framework: Three Ways to Read It</title>
-  <meta name="description" content="Gonzaga SBA student external engagement framework. Two structural options (A and B) plus a perspectives view, for administrator review." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>SBA Student Group Standards</title>
+<meta name="description" content="How student groups operate in Gonzaga's School of Business Administration: three tiers of engagement, the approval process for each, and the roles and standards that apply at every tier.">
+
+<!-- ==========================================================
+     SBA STUDENT GROUP STANDARDS.
+
+     Supersedes the three-option review site that lived here
+     (Option A / Option B / Perspectives), which existed so
+     administrators could choose a structure. The choice is made;
+     this is the standard. The retired pages remain in git history.
+
+     BRAND: Gonzaga, academic/SBA identity. Navy #041E42 dominant,
+     Gonzaga red #C8102E as accent, silver neutral. Official GU
+     typography via Adobe Typekit (Adelle for headings, Proxima
+     Nova for body and UI) with Figtree as the free fallback.
+     Tier colours escalate through the GU secondary palette:
+     Spokane River Blue, Sunflower, Gonzaga Red.
+
+     HOUSE STYLE: no dash punctuation in the visible copy.
+     ========================================================== -->
+
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/zaj3ayb.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap">
+
+<style>
+/* Layout: preamble on top, three entry cards (Tiers / Process / Roles) that jump to three full sections below */
+:root {
+  /* Gonzaga academic palette (gonzaga-brand: SBA sites are navy dominant, red accent) */
+  --navy: #041E42;          /* Pantone 282 C  — dominant */
+  --gu-blue: #06274F;       /* Pantone 540    — institutional blue, body text */
+  --red: #C8102E;           /* Pantone 186 C  — accent, used sparingly */
+  --silver: #C3C6C8;        /* Pantone 428 C  — neutral */
+  --river: #5E8AB4;         /* Pantone 646 */
+  --sunflower: #F1A12C;     /* Pantone 143 */
+  --basalt: #434854;        /* Pantone 445    — secondary text */
+
+  --bg: #f3f3f3;
+  --surface: #ffffff;
+  --fg: var(--gu-blue);
+  --muted: var(--basalt);
+  --line: #d5d9e0;
+  --accent: var(--navy);
+  --accent-soft: #e7ecf4;
+  --t1: var(--river);
+  --t2: #a9711a;            /* Sunflower darkened for contrast on light surfaces */
+  --t3: var(--red);
+
+  --display: "adelle", "figtree", Georgia, "Times New Roman", serif;
+  --body: "proxima-nova", "figtree", Arial, Helvetica, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1626; --surface: #122133; --fg: #e6ebf2; --muted: #a3b2c6;
+    --line: #27374d; --accent: #9fb8dc; --accent-soft: #15253a;
+    --t1: #8fb3d9; --t2: #e0ae5f; --t3: #ec8a8a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1626; --surface: #122133; --fg: #e6ebf2; --muted: #a3b2c6;
+  --line: #27374d; --accent: #9fb8dc; --accent-soft: #15253a;
+  --t1: #8fb3d9; --t2: #e0ae5f; --t3: #ec8a8a;
+  color-scheme: dark;
+}
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; margin: 0; }
+
+/* Gonzaga identity bar */
+.gubar { background: var(--navy); color: #fff; }
+.gubar div { max-width: 68rem; margin: 0 auto; padding: .7rem 20px; display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
+.gubar .mark { font-family: var(--display); font-weight: 700; font-size: 1rem; letter-spacing: -.01em; }
+.gubar .unit { font-size: .82rem; color: rgba(255,255,255,.72); border-left: 1px solid rgba(255,255,255,.28); padding-left: .75rem; }
+@media (max-width: 460px) { .gubar .unit { border-left: 0; padding-left: 0; flex-basis: 100%; } }
+
+.wrap { max-width: 68rem; margin: 0 auto; padding-inline: 20px; padding-block: 3rem 4rem; display: grid; gap: 3.5rem; }
+.narrow { max-width: 44rem; }
+h1, h2, h3, h4 { font-family: var(--display); text-wrap: balance; }
+.label { font-family: var(--body); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 0; }
+p { margin: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Preamble */
+header { display: grid; gap: 1.1rem; }
+h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 700; line-height: 1.05; margin: 0; letter-spacing: -.01em; }
+.preamble { display: grid; gap: .9rem; }
+.preamble p { max-width: 44rem; }
+.twofold { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: .75rem; max-width: 44rem; }
+.twofold div { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: .8rem 1rem; display: grid; gap: .25rem; min-width: 0; }
+.twofold h3 { margin: 0; font-size: 1.05rem; }
+.twofold p { font-size: .97rem; color: var(--muted); }
+.principle { font-family: var(--display); font-weight: 600; font-size: 1.2rem; line-height: 1.35; max-width: 44rem; border-left: 4px solid var(--red); padding-left: 1rem; }
+
+/* Entry cards */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.card { display: grid; gap: .5rem; align-content: start; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 8px; padding: 1.25rem; color: var(--fg); text-decoration: none; min-width: 0; transition: border-color .15s, transform .15s, box-shadow .15s; }
+.card:hover { border-color: var(--accent); box-shadow: 0 4px 18px rgba(4,30,66,.1); transform: translateY(-2px); }
+.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.card h2 { margin: 0; font-size: 1.3rem; }
+.card p { color: var(--muted); font-size: .97rem; }
+.card .go { font-family: var(--body); font-size: .88rem; font-weight: 700; color: var(--accent); margin-top: .25rem; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+
+/* Sections */
+section { display: grid; gap: 1.25rem; padding-top: 2rem; border-top: 1px solid var(--line); scroll-margin-top: 1rem; }
+.sec-head { display: grid; gap: .4rem; }
+.sec-head h2 { margin: 0; font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.15; }
+.sec-head p { color: var(--muted); max-width: 44rem; }
+.back { font-family: var(--body); font-weight: 600; font-size: .85rem; color: var(--accent); text-decoration: none; justify-self: start; }
+.back:hover { text-decoration: underline; }
+.back:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Tier matrix */
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 46rem; font-size: .95rem; }
+th, td { text-align: left; vertical-align: top; padding: .75rem .9rem; border-bottom: 1px solid var(--line); }
+thead th { font-family: var(--display); font-size: 1rem; font-weight: 700; border-bottom: 2px solid var(--navy); }
+tbody th { font-family: var(--body); font-weight: 700; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); width: 9rem; }
+tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+.tierdot { display: inline-block; width: .6rem; height: .6rem; border-radius: 50%; margin-right: .45rem; vertical-align: middle; }
+.c1 { background: var(--t1); } .c2 { background: var(--t2); } .c3 { background: var(--t3); }
+.rigor { display: flex; gap: 3px; margin-top: .3rem; }
+.rigor i { width: 1.1rem; height: .35rem; border-radius: 2px; background: var(--line); }
+.rigor.r1 i:nth-child(-n+1), .rigor.r2 i:nth-child(-n+2), .rigor.r3 i:nth-child(-n+3) { background: var(--accent); }
+.note { font-size: .95rem; color: var(--muted); max-width: 44rem; }
+
+/* Process flow */
+.flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; counter-reset: step; }
+.flow li { counter-increment: step; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: .9rem; display: grid; gap: .3rem; align-content: start; min-width: 0; }
+.flow li::before { content: "Step " counter(step); font-family: var(--mono); font-size: .78rem; color: var(--accent); }
+.flow h4 { margin: 0; font-size: 1rem; }
+.flow p { font-size: .9rem; color: var(--muted); }
+
+.tabs { display: grid; gap: 0; }
+.tablist { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.tab { font-family: var(--body); font-weight: 700; font-size: .95rem; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 999px; padding: .5rem 1rem; cursor: pointer; display: inline-flex; align-items: center; }
+.tab[aria-selected="true"] { border-color: var(--navy); background: var(--navy); color: #fff; }
+.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1.4rem; display: grid; gap: 1.1rem; }
+.panel h3 { margin: 0; font-size: 1.35rem; }
+.panel .intro { max-width: 44rem; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.25rem; }
+.cols > div { min-width: 0; display: grid; gap: .4rem; align-content: start; }
+.cols h4 { font-family: var(--body); margin: 0; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.panel ul { margin: 0; padding-left: 1.15rem; display: grid; gap: .3rem; font-size: .97rem; }
+.callout { border-left: 3px solid var(--red); padding: .6rem .9rem; background: var(--bg); font-size: .95rem; }
+.callout strong { font-family: var(--display); }
+
+/* Roles and standards */
+.roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.role { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--silver); border-radius: 8px; padding: 1.15rem; display: grid; gap: .5rem; align-content: start; min-width: 0; }
+.role h3 { margin: 0; font-size: 1.15rem; }
+.role .tag { font-size: .93rem; color: var(--muted); }
+.role ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .3rem; font-size: .95rem; }
+h3.sub { margin: .5rem 0 0; font-size: 1.2rem; }
+.standards { display: grid; gap: .5rem; }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+summary { cursor: pointer; padding: .8rem 1rem; list-style: none; display: grid; grid-template-columns: 1fr auto; gap: .2rem 1rem; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-family: var(--mono); color: var(--accent); grid-column: 2; grid-row: 1; }
+details[open] summary::after { content: "–"; }
+summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+summary b { font-family: var(--display); font-size: 1rem; }
+summary span { grid-column: 1; color: var(--muted); font-size: .93rem; }
+.detail { padding: 0 1rem 1rem; }
+.detail ul { margin: 0; padding-left: 1.15rem; display: grid; gap: .3rem; font-size: .97rem; }
+
+.next { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--red); border-radius: 8px; padding: 1.25rem; display: grid; gap: .6rem; max-width: 44rem; }
+.next h2 { margin: 0; font-size: 1.25rem; }
+.next ol { margin: 0; padding-left: 1.3rem; display: grid; gap: .35rem; }
+.due { font-family: var(--mono); font-size: .9rem; color: var(--red); font-weight: 500; }
+footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+
+@media (max-width: 860px) {
+  .cards, .roles { grid-template-columns: 1fr; }
+  .flow { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) { .flow { grid-template-columns: 1fr; } .panel { padding: 1.1rem; } }
+</style>
 </head>
 <body>
 
-  <header class="hero">
-    <div class="wrap">
-      <span class="eyebrow">Gonzaga &middot; School of Business Administration</span>
-      <h1>Student External Engagement Framework</h1>
-      <p class="sub">One framework, three ways to read it. Look through each, then tell us what works best.</p>
+<div class="gubar">
+  <div>
+    <span class="mark">Gonzaga University</span>
+    <span class="unit">School of Business Administration</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header id="top">
+    <p class="label">School of Business Administration · Student groups</p>
+    <h1>How student groups operate</h1>
+    <div class="preamble">
+      <p>Student groups give business students real experience beyond the classroom. Events, speakers, trainings, and client projects are all ways to do that.</p>
+      <p>Leading a student group comes with responsibility. The work has two purposes, and they carry equal weight:</p>
+      <div class="twofold">
+        <div>
+          <h3>Protect the school</h3>
+          <p>Avoid mistakes that harm the School of Business, the university, or the people we work with.</p>
+        </div>
+        <div>
+          <h3>Let students flourish</h3>
+          <p>Set students up to succeed, build real skills, and protect their own reputations.</p>
+        </div>
+      </div>
+      <p>The further a group reaches outside the business school, the more is at stake for both. This framework scales planning and oversight to match.</p>
+      <p>It comes from experience. Over several years of student groups bringing in speakers and doing client work, most problems traced back to the same few causes: acting before planning, unclear roles, and work the advisor didn't know about. A group that learns from that history can last. One that ignores it usually doesn't.</p>
+      <p class="principle">Freedom is earned by showing a plan. Plans don't need to be perfect. They need to show you thought it through before acting.</p>
     </div>
   </header>
 
-  <!-- Shared purpose -->
-  <section class="section">
-    <div class="wrap">
-      <p class="kicker">What this framework is for</p>
-      <p class="lead">
-        This framework guides any student group that wants to engage with <strong>external entities</strong>
-        (clients, partners, and the public) while using the Gonzaga and School of Business name and resources.
-        Its goal is not to restrict but to be responsible: when a group goes external it stops being an internal
-        club and starts representing the university, and that carries the same liabilities any consultancy carries.
-        It aims to mitigate that risk while protecting the autonomy students value, resting on one central insight:
-        planning an engagement is itself the risk mitigation.
-      </p>
+  <nav class="cards" aria-label="Sections">
+    <a class="card" href="#tiers">
+      <p class="label">Overview</p>
+      <h2>Tiers of engagement</h2>
+      <p>Three levels of work, from internal events to client projects, and what each one requires.</p>
+      <span class="go">See the tiers ↓</span>
+    </a>
+    <a class="card" href="#process">
+      <p class="label">Process</p>
+      <h2>Pick your tier</h2>
+      <p>How to move from an idea to approved work, and the plan each tier asks for.</p>
+      <span class="go">Start the process ↓</span>
+    </a>
+    <a class="card" href="#roles">
+      <p class="label">Always applies</p>
+      <h2>Roles and standards</h2>
+      <p>Who does what, and the rules for social, email, branding, resources, and information at every tier.</p>
+      <span class="go">See roles and standards ↓</span>
+    </a>
+  </nav>
 
-      <div class="samenote">
-        <span class="mark" aria-hidden="true">=</span>
-        <p>
-          <strong>Options A and B are identical</strong> in philosophy, faculty role, cross-cutting requirements,
-          preparation model, and planning document. They differ in exactly one thing: how the framework is organized,
-          and that single difference lives in <strong>Section 3</strong> of each document.
-        </p>
-      </div>
+  <!-- TIERS -->
+  <section id="tiers">
+    <div class="sec-head">
+      <p class="label">Overview</p>
+      <h2>Tiers of engagement</h2>
+      <p>Each tier reaches further outside the school. Each step up raises the stakes for the school and for the students, so it raises the planning and oversight too.</p>
     </div>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col"><span class="sr-only">Dimension</span></th>
+            <th scope="col"><span class="tierdot c1"></span>Tier 1 · Internal</th>
+            <th scope="col"><span class="tierdot c2"></span>Tier 2 · External exposure</th>
+            <th scope="col"><span class="tierdot c3"></span>Tier 3 · External business</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">What it is</th>
+            <td>Students working with students inside the business school</td>
+            <td>Bringing outside people in, or putting the group's work in public</td>
+            <td>Doing work for an outside organization</td>
+          </tr>
+          <tr>
+            <th scope="row">Examples</th>
+            <td>Member meetings, peer workshops, career events</td>
+            <td>Guest speakers, outside trainers, public promotion</td>
+            <td>Client consulting projects; any NDA or agreement</td>
+          </tr>
+          <tr>
+            <th scope="row">Who approves</th>
+            <td>Faculty advisor is informed</td>
+            <td>Advisor submits a ZAG Activities request; administration evaluates; the dean approves</td>
+            <td>Faculty advisor approves the client and scope before anything is confirmed</td>
+          </tr>
+          <tr>
+            <th scope="row">Plan required</th>
+            <td>Semester calendar</td>
+            <td>Event plan, at least 1–2 weeks before the event</td>
+            <td>Full engagement plan: client, scope, team, communication, timeline</td>
+          </tr>
+          <tr>
+            <th scope="row">Advisor's role</th>
+            <td>Kept informed</td>
+            <td>Sponsors the request and reviews the event plan</td>
+            <td>Approves the client and scope, stays aware of all client activity, is invited to key meetings, reviews work before it reaches the client</td>
+          </tr>
+          <tr>
+            <th scope="row">Planning and oversight</th>
+            <td><div class="rigor r1" aria-label="Low"><i></i><i></i><i></i></div></td>
+            <td><div class="rigor r2" aria-label="Medium"><i></i><i></i><i></i></div></td>
+            <td><div class="rigor r3" aria-label="High"><i></i><i></i><i></i></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">The roles and standards below apply at every tier.</p>
+    <a class="back" href="#top">↑ Back to top</a>
   </section>
 
-  <!-- Three cards -->
-  <section class="section-tight">
-    <div class="wrap">
-      <div class="compare-head">
-        <p class="kicker">Three ways into the same framework</p>
-      </div>
-
-      <div class="grid3">
-
-        <!-- Option A -->
-        <article class="card">
-          <div class="card__top"></div>
-          <span class="badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <rect x="3" y="14" width="4" height="6" rx="1"></rect>
-              <rect x="10" y="9" width="4" height="11" rx="1"></rect>
-              <rect x="17" y="4" width="4" height="16" rx="1"></rect>
-            </svg>
-          </span>
-          <p class="struct">Option A</p>
-          <h3>Engagement Tiers</h3>
-          <p class="summary">
-            Sorts engagements by what the group is doing into three escalating tiers: exposure and public voice,
-            then research and consulting, then binding or confidential (NDA) work. A group finds its tier, and higher
-            tiers inherit the requirements of lower ones and add to them.
-          </p>
-          <div class="tags">
-            <div class="tag tag--good">
-              <span class="lab">Good at</span>
-              <span><b>An intuitive on-ramp.</b> A group sees only the requirements that apply to it, with complexity introduced as the work escalates.</span>
-            </div>
-            <div class="tag tag--strain">
-              <span class="lab">Strains</span>
-              <span><b>Mixed engagements.</b> Work that spans more than one type at once (say, public voice plus confidential data) has to be mapped across tiers.</span>
-            </div>
-          </div>
-          <div class="cta">
-            <a class="btn" href="option-a.html">Read Option A <span class="arw" aria-hidden="true">&rarr;</span></a>
-          </div>
-        </article>
-
-        <!-- Option B -->
-        <article class="card">
-          <div class="card__top"></div>
-          <span class="badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.5 12a8.5 8.5 0 1 1-2.5-6"></path>
-              <path d="M20.5 4.5v4h-4"></path>
-            </svg>
-          </span>
-          <p class="struct">Option B</p>
-          <h3>One Lifecycle + Classification</h3>
-          <p class="summary">
-            Runs every engagement through the same lifecycle with the same gates, and manages risk by classifying
-            information into four sensitivity levels and scaling oversight intensity with exposure. The process does
-            not change; how hard the gates are pressed does.
-          </p>
-          <div class="tags">
-            <div class="tag tag--good">
-              <span class="lab">Good at</span>
-              <span><b>One consistent process.</b> The same path fits every engagement and extends cleanly as a group matures and takes on higher-exposure work.</span>
-            </div>
-            <div class="tag tag--strain">
-              <span class="lab">Strains</span>
-              <span><b>Up-front load.</b> More to absorb at the start, since even a simple engagement runs the full lifecycle and classification model.</span>
-            </div>
-          </div>
-          <div class="cta">
-            <a class="btn" href="option-b.html">Read Option B <span class="arw" aria-hidden="true">&rarr;</span></a>
-          </div>
-        </article>
-
-        <!-- Perspectives -->
-        <article class="card">
-          <div class="card__top"></div>
-          <span class="badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="8.5" cy="9" r="4.75"></circle>
-              <circle cx="15.5" cy="9" r="4.75"></circle>
-              <circle cx="12" cy="15.5" r="4.75"></circle>
-            </svg>
-          </span>
-          <p class="struct">Perspectives</p>
-          <h3>Three Lenses</h3>
-          <p class="summary">
-            Reads the framework from three seats, the administrator, the faculty champion, and the student, showing
-            what each one gains and what each one risks in the same engagement. A way to see one opportunity from
-            every side before deciding how to organize it.
-          </p>
-          <div class="tags">
-            <div class="tag tag--good">
-              <span class="lab">Good at</span>
-              <span><b>Shared understanding.</b> It surfaces what is at stake for everyone at the table, in their own terms.</span>
-            </div>
-            <div class="tag tag--strain">
-              <span class="lab">Strains</span>
-              <span><b>Not a structure.</b> It does not organize the work; you still run engagements through Option A or Option B.</span>
-            </div>
-          </div>
-          <div class="cta">
-            <a class="btn" href="perspectives.html">Read Perspectives <span class="arw" aria-hidden="true">&rarr;</span></a>
-          </div>
-        </article>
-
-      </div>
-
-      <p class="reviewer">
-        <strong>For reviewers:</strong> these are three ways into the same framework, not three different frameworks.
-        Read the one that fits your seat, or read all three, then share what works best.
-      </p>
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="sec-head">
+      <p class="label">Process</p>
+      <h2>Pick your tier</h2>
+      <p>Every activity moves through the same five steps. What changes by tier is how much the plan has to cover.</p>
     </div>
+    <ol class="flow">
+      <li><h4>Pick the tier</h4><p>Decide which tier the activity falls in. If it touches two, use the higher one.</p></li>
+      <li><h4>Write the plan</h4><p>Cover what that tier asks for. Keep it short and clear.</p></li>
+      <li><h4>Get approval</h4><p>The advisor reviews it and routes it on when the tier requires.</p></li>
+      <li><h4>Run it</h4><p>Work inside the approved plan. Anything outside it comes back to the advisor.</p></li>
+      <li><h4>Close it out</h4><p>Record what happened and what you learned, so the next team starts ahead.</p></li>
+    </ol>
+
+    <div class="tabs">
+      <div class="tablist" role="tablist" aria-label="Choose a tier">
+        <button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true" tabindex="0" type="button"><span class="tierdot c1"></span>Tier 1 · Internal</button>
+        <button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" type="button"><span class="tierdot c2"></span>Tier 2 · External exposure</button>
+        <button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1" type="button"><span class="tierdot c3"></span>Tier 3 · External business</button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0">
+        <h3>Tier 1 · Internal</h3>
+        <p class="intro">Students working with students. This is where most of a group's work with the wider student body happens, including events the School of Business relies on.</p>
+        <div class="cols">
+          <div>
+            <h4>Your plan covers</h4>
+            <ul>
+              <li>A semester calendar of meetings, workshops, and events</li>
+              <li>Who leads each one</li>
+              <li>Rooms and resources you'll need</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Checks</h4>
+            <ul>
+              <li>Advisor sees the calendar at the start of the semester</li>
+              <li>Room and resource requests go through normal school channels</li>
+              <li>Any promotion follows the social and branding standards</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
+        <h3>Tier 2 · External exposure</h3>
+        <p class="intro">The first step outside the school. When you bring in a guest speaker or trainer, you are using university resources and inviting someone in on the school's behalf, so there is an approval process with lead time.</p>
+        <div class="cols">
+          <div>
+            <h4>Your plan covers</h4>
+            <ul>
+              <li>Who the speaker or trainer is and why they fit the group's mission</li>
+              <li>Date, format, audience, and room</li>
+              <li>How you'll promote it</li>
+              <li>Who hosts and handles communication with the guest</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Checks</h4>
+            <ul>
+              <li>The faculty advisor submits the request through ZAG Activities</li>
+              <li>Administration evaluates the speaker, then the dean approves or declines</li>
+              <li>Nothing is confirmed with the guest until that approval comes back</li>
+              <li>Submit the plan to the advisor at least one to two weeks before the event. A request the week of the event won't work.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0" hidden>
+        <h3>Tier 3 · External business</h3>
+        <p class="intro">Doing work for an outside organization. This tier carries the most risk and the most responsibility, for the school, for the client, and for the students whose names are on the work.</p>
+        <div class="cols">
+          <div>
+            <h4>Your plan covers</h4>
+            <ul>
+              <li>The client, and why the project fits the group's mission</li>
+              <li>Scope: the problem, the deliverables, and what's out of scope</li>
+              <li>The team, and why they're ready for this work</li>
+              <li>One named point of contact and a meeting schedule</li>
+              <li>Timeline with a midpoint and a final</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Checks</h4>
+            <ul>
+              <li>Students may find, interview, and recommend clients. The advisor approves before anything is confirmed.</li>
+              <li>The advisor is aware of every engagement and copied on client email</li>
+              <li>The advisor is invited to kickoff, midpoint, and final meetings. Attendance isn't required; the invitation is.</li>
+              <li>A midpoint check-in catches problems early</li>
+              <li>The advisor reviews every deliverable before the client sees it</li>
+              <li>Closeout notes record what was delivered and what the team learned</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout"><strong>NDAs and agreements.</strong> No student signs an NDA, contract, or agreement for the group. Any request for one goes to the advisor first and then to university counsel. Confidential client material stays in university-owned storage.</div>
+      </div>
+    </div>
+    <a class="back" href="#top">↑ Back to top</a>
   </section>
 
-  <footer class="site-foot">
-    <div class="wrap">
-      <span>Gonzaga University &middot; School of Business Administration</span>
-      <span>Framework draft for review</span>
+  <!-- ROLES -->
+  <section id="roles">
+    <div class="sec-head">
+      <p class="label">Always applies</p>
+      <h2>Roles and standards</h2>
+      <p>No student group in the School of Business is entirely student-driven. These roles and standards hold at every tier.</p>
     </div>
-  </footer>
 
+    <div class="roles">
+      <div class="role">
+        <p class="label">Students</p>
+        <h3>Lead and do the work</h3>
+        <p class="tag">Student leaders run the group day to day.</p>
+        <ul>
+          <li>Plan activities and submit plans before acting</li>
+          <li>Draft outreach, posts, and deliverables</li>
+          <li>Recommend clients and speakers</li>
+          <li>Keep the advisor updated on a regular schedule, without being asked</li>
+          <li>Represent the school professionally</li>
+        </ul>
+        <p class="tag">Students are not agents of the university. They can't sign for it or be named as responsible parties.</p>
+      </div>
+      <div class="role">
+        <p class="label">Faculty advisor</p>
+        <h3>Final say on external work</h3>
+        <p class="tag">The university employee accountable for the group.</p>
+        <ul>
+          <li>Approves plans, clients, and scopes</li>
+          <li>Submits ZAG Activities requests for speakers</li>
+          <li>Reviews deliverables before they reach a client</li>
+          <li>Routes NDAs and agreements to counsel</li>
+          <li>Connects the group to school resources and partners</li>
+        </ul>
+        <p class="tag">The advisor's job is the approvals and the judgment calls. Students do the work.</p>
+      </div>
+      <div class="role">
+        <p class="label">School of Business</p>
+        <h3>Owns the name and the resources</h3>
+        <p class="tag">Administration, the dean's office, and marketing.</p>
+        <ul>
+          <li>The dean approves outside speakers</li>
+          <li>The marketing coordinator oversees branded communication</li>
+          <li>Sets the requirements every student group follows</li>
+          <li>Provides rooms, systems, funding, and promotion</li>
+        </ul>
+        <p class="tag">The group uses the school's name and resources, so the school sets the standards for using them.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Standards for every tier</h3>
+    <div class="standards">
+      <details>
+        <summary><b>Social media and promotion</b><span>Run through and branded with the School of Business.</span></summary>
+        <div class="detail"><ul>
+          <li>The advisor has access to every group account</li>
+          <li>A posting calendar each semester, shared with the advisor and the marketing coordinator</li>
+          <li>Posts that use Gonzaga branding or identify the group with the university are signed off by a university employee before they go out</li>
+          <li>No client work is posted without the client's and the advisor's approval</li>
+        </ul></div>
+      </details>
+      <details>
+        <summary><b>Email and outreach</b><span>Who sends, from what account, and what it says.</span></summary>
+        <div class="detail"><ul>
+          <li>Send from a group or Gonzaga account, never a personal one</li>
+          <li>A short list of approved senders</li>
+          <li>Standard templates for outreach to clients, alumni, and speakers, approved once by the advisor</li>
+          <li>The advisor is copied on client and partner threads</li>
+          <li>No commitments by email: dates, deliverables, or terms are confirmed only after approval</li>
+        </ul></div>
+      </details>
+      <details>
+        <summary><b>Name and logo</b><span>The Gonzaga and School of Business names belong to the school.</span></summary>
+        <div class="detail"><ul>
+          <li>Use university branding only as the School of Business allows</li>
+          <li>Materials that carry the Gonzaga name are reviewed before release</li>
+          <li>Group names that reference Gonzaga or the School of Business stay with the school</li>
+        </ul></div>
+      </details>
+      <details>
+        <summary><b>University resources</b><span>Rooms, systems, funding, and approval processes.</span></summary>
+        <div class="detail"><ul>
+          <li>Request rooms and resources through school channels</li>
+          <li>Use the ZAG Activities process for outside speakers</li>
+          <li>Plan for lead time: at least one to two weeks for outside speakers</li>
+        </ul></div>
+      </details>
+      <details>
+        <summary><b>Information and files</b><span>Where work lives and who can see it.</span></summary>
+        <div class="detail"><ul>
+          <li>Client files live in university-owned storage, not personal drives</li>
+          <li>Confidential client material is shared only with the project team and the advisor</li>
+          <li>When a student leaves or a project ends, access is removed and files stay with the group</li>
+          <li>Accounts and passwords belong to the group, not to individuals</li>
+        </ul></div>
+      </details>
+      <details>
+        <summary><b>Updates and records</b><span>The advisor stays informed without having to ask.</span></summary>
+        <div class="detail"><ul>
+          <li>A short regular update to the advisor on all active work</li>
+          <li>Closeout notes for every event and project</li>
+          <li>Records carry forward so each new leadership team starts with what the last one learned</li>
+        </ul></div>
+      </details>
+    </div>
+    <a class="back" href="#top">↑ Back to top</a>
+  </section>
+
+  <div class="next">
+    <h2>Next step</h2>
+    <ol>
+      <li>Tell the advisor which tiers your group will operate in this year.</li>
+      <li>Send the plan for each tier you choose.</li>
+      <li>For each current client, send the client contact, the student team, the email account in use, and current status.</li>
+    </ol>
+    <p class="due">Due: [date]</p>
+  </div>
+
+  <footer>Questions go to your group's faculty advisor. This page reflects School of Business requirements for student groups that work outside the business school.</footer>
+</div>
+
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function select(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(t, false); });
+    t.addEventListener('keydown', function (e) {
+      var n = null;
+      if (e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') n = tabs[0];
+      if (e.key === 'End') n = tabs[tabs.length - 1];
+      if (n) { e.preventDefault(); select(n, true); }
+    });
+  });
+})();
+</script>
 </body>
 </html>

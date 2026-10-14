@@ -1,9 +1,9 @@
-# Build Notes: SBA Student External Engagement Framework
+# Build Notes: SBA Student Group Standards
 
 Working notes and current state for this repo, so the build can be picked back up later.
-For the public-facing description of the repo, see [README.md](README.md).
+For the public-facing description, see [README.md](README.md).
 
-**Last updated:** 2026-07-28
+**Last updated:** 2026-10-14
 
 ---
 
@@ -11,113 +11,124 @@ For the public-facing description of the repo, see [README.md](README.md).
 
 | | |
 |---|---|
-| **Purpose** | A review site presenting a Gonzaga SBA policy framework in three ways, so administrators can read them and say which structure they prefer. |
+| **Purpose** | The School of Business Administration's standard for how student groups operate. One page, published for student group leaders and their advisors. |
 | **Live** | https://gu-27.github.io/SBA-Student-ExternalClubs/ |
 | **Repo** | gu-27/SBA-Student-ExternalClubs (GitHub) |
-| **Visibility** | Public |
-| **Hosting** | GitHub Pages, source = `main` branch root, auto-rebuilds on push (usually live in 15 to 35 seconds) |
-| **Status** | Complete and deployed. No work in progress. |
+| **Visibility** | Public repo. The page is **`noindex, nofollow`** — link-only, per the SBA/GSCG convention set 2026-09-13. |
+| **Hosting** | GitHub Pages, source = `main` branch root, auto-rebuilds on push |
+| **Status** | Complete and deployed. |
 
 ---
 
-## What it is
+## What changed on 2026-10-14
 
-Three pages, all built from the same source framework:
+The repo used to host a **review site**: the framework written three ways (Option A engagement
+tiers, Option B one lifecycle plus information classification, and a Perspectives lens view) so
+administrators could choose a structure.
 
-- **Landing** (`index.html`): shared purpose, then three visually equal peer cards (Option A, Option B, Perspectives). Cards are deliberately identical in anatomy so none reads as the default.
-- **Option A** (`option-a.html`): the framework organized as escalating engagement tiers.
-- **Option B** (`option-b.html`): the framework as one lifecycle plus information classification.
-- **Perspectives** (`perspectives.html`): the framework read through three lenses (administrator, faculty, student), shown as an accessible tabbed view.
+**That choice has been made.** The tier structure won. John supplied the finished standard, and
+the site was rebuilt as a single page.
 
-Options A and B are identical except for their Section 3. The Perspectives view is a lens layer that pairs with either one, not a competing structure (stated plainly near the top of that page).
+Removed, and recoverable from git history at commit **`a42fcd5`**:
+`option-a.html`, `option-b.html`, `perspectives.html`, `render.js`, `perspectives.js`,
+`styles.css`, `content/option-a.md`, `content/option-b.md`, `content/perspectives.md`.
+
+They were removed rather than left in place because a superseded policy still reachable at a
+live URL is worse than one that 404s. Someone would eventually find Option B and follow it.
+
+**Also gone: the markdown-as-source-of-truth architecture.** The old pages were thin clients
+that fetched `content/*.md` and rendered it with `marked`. The standard is a hand-built page with
+its content inline, so there is no longer a markdown layer, no `marked` dependency, and no
+reason for the `.nojekyll` file beyond harmlessness (kept, since removing it only invites
+Jekyll surprises).
 
 ---
 
 ## Architecture
 
-**The three markdown files in `content/` are the single source of truth.** Every page is a thin client that fetches its `.md` and renders it in the browser with [marked](https://github.com/markedjs/marked) (pinned to `marked@12.0.0` from jsDelivr). To change framework wording, edit the markdown only; the pages update on their own.
-
-- Options A and B render their whole document as-is via `render.js`.
-- Perspectives is built by `perspectives.js`, which parses the regular shape of `perspectives.md` (three `## The X Lens` sections, each with five bold-led fields: opportunity, exposure, considerations, reframe, guiding question) into three tabs. If that shape ever fails to parse, the page falls back to rendering the whole document so nothing is lost.
-
-`.nojekyll` at the repo root tells GitHub Pages to serve `content/*.md` as raw static assets (otherwise Jekyll can interfere with the fetch).
-
-### File map
+One self-contained `index.html`. No build step, no framework, no fetches. Styles are in a single
+`<style>` block and the tab interaction is one inline IIFE.
 
 ```
-index.html          Landing page (three equal peer cards)
-option-a.html        Reader page  -> content/option-a.md   (via render.js)
-option-b.html        Reader page  -> content/option-b.md   (via render.js)
-perspectives.html    Tabbed view  -> content/perspectives.md (via perspectives.js)
-styles.css           Shared styles (SBA navy/red, Inter, mobile-first)
-render.js            Fetch a .md and render it into a reader page
-perspectives.js      Parse perspectives.md into the accessible tab interface
-content/*.md         Source of truth for all framework text
-.nojekyll            Serve .md files raw on GitHub Pages
-README.md            Repo purpose + structure
-NOTES.md             This file
+index.html   The whole site
+.nojekyll    Vestigial; kept so Jekyll stays out of the way
+README.md    Repo purpose + structure
+NOTES.md     This file
 ```
+
+**Page shape:** preamble (the two purposes, then the governing principle) → three entry cards →
+three full sections (Tiers, Process, Roles and standards) → next step → footer.
 
 ---
 
-## Key decisions
+## Brand
 
-- **Static, no build step, no framework.** For a small review site this is simpler and more portable than Astro, and it matches the house static-first convention. Deployable on Cloudflare Pages later with no changes (root dir, no build command).
-- **Brand:** SBA academic identity. Navy `#041E42` dominant, red `#C8102E` accent, silver neutral, **Inter** throughout (the academic/course-property font; the Outfit + Libre pair is reserved for slide/presentation sites, which this is not).
-- **Three equal cards.** Uniform line-icon badges (ascending bars / lifecycle loop / three lenses) and identical card anatomy, so no option looks favored. Verified equal widths on desktop and stacked-equal on mobile.
-- **Fairness.** Each card has a short summary plus a parallel Good-at / Strains line. The Perspectives card honestly notes it is not a structure and that engagements still run through Option A or B.
-- **Perspectives tabs** are keyboard accessible (arrow keys, Home, End, roving tabindex, proper roles and `aria-selected`), swipeable on touch, and the tablist scrolls horizontally on narrow screens.
-- **No em-dashes** anywhere in the copy (house preference).
-- **Content is verbatim** from the three source documents. The only cleanup was normalizing dash-character glitches in the originals.
+Gonzaga **academic** identity, not the GSCG one. Per the `gonzaga-brand` standard, SBA properties
+are **navy dominant with red as the accent**; red-dominant is the GSCG/athletic register and
+would be wrong here.
+
+| Token | Value | Role |
+|---|---|---|
+| `--navy` | `#041E42` (PMS 282 C) | Dominant: identity bar, labels, links, active tab, card tops |
+| `--gu-blue` | `#06274F` (PMS 540) | Body text |
+| `--red` | `#C8102E` (PMS 186 C) | Accent only: the principle rule, the NDA callout, Tier 3, the due date |
+| `--silver` | `#C3C6C8` (PMS 428 C) | Neutral |
+| `--t1/t2/t3` | River Blue `#5E8AB4` / darkened Sunflower `#a9711a` / Red `#C8102E` | Escalating tier ramp from the GU secondary palette |
+
+**Typography is the official GU stack**, loaded from Adobe Typekit (`zaj3ayb`): **Adelle**
+(serif) for headings, **Proxima Nova** (sans) for body and UI, with **Figtree** from Google Fonts
+as the free fallback when Typekit is unavailable.
+
+**This replaced Inter**, which the previous build used and this file previously prescribed. The
+reason: John asked for "the gonzaga branding", and Typekit Adelle + Proxima Nova *is* the
+official institutional stack — Inter is the convention on John's own web properties, not
+Gonzaga's. It also now matches `gscg.pages.dev`. Reverting is a two-line change if preferred.
+
+**Note on the incoming design.** The supplied code used Archivo (sans) for headings and Source
+Serif 4 (serif) for body — the opposite pairing to GU's. The swap means the UI elements that
+were set in the display face (`.label`, `.tab`, `.back`, `.card .go`, `.cols h4`, row headers)
+are now set in Proxima Nova at weight 600–700, because Adelle on a pill button reads as a
+mistake. Headings, the principle line, `summary b` and `.callout strong` keep the serif.
+
+**Dark mode** is supported (both `prefers-color-scheme` and `[data-theme]`), carried over from
+the supplied design and re-tinted to the navy palette.
 
 ---
 
-## Terminology history
+## Copy
 
-The wording for the responsible-adult figure changed twice, by request:
+**Verbatim from John's source**, with no edits. Two things worth a decision rather than a silent
+fix:
 
-1. Original source said "adult" / "an adult in the room".
-2. Changed all "adult" to "professional" (2026-07-28).
-3. Changed the references that **name the role figure** to "faculty adviser" (2026-07-28): "a faculty adviser in the room", "the faculty adviser role", "the faculty adviser absorbs the gap", "burns out its faculty adviser".
-
-**Left as "professional"** because they are not the figure: "the professional bar", "professionalism", "look like professionals", and "Vet with professional decision authority" (its own sentence scopes that to the leadership plus faculty layer, not the adviser alone).
-
-Spelling note: used **"adviser"** to match existing doc usage ("champion or adviser", "faculty/adviser practice").
+- **`Due: [date]`** in the Next step box is an unfilled placeholder. It is styled in red so it
+  cannot ship unnoticed, but it will go out as `[date]` if nobody fills it.
+- **"1–2 weeks" vs "one to two weeks."** The tier table writes the lead time with an en dash; the
+  Tier 2 panel spells it out. The repo's house style is no dash punctuation in copy, so the table
+  is the odd one out. Left alone because changing John's wording was not the ask.
 
 ---
 
 ## How to work on it
 
-**Local preview** (the pages fetch markdown, which browsers block over `file://`):
-
-```bash
-cd ~/projects/SBA-Student-ExternalClubs
-python3 -m http.server 8888
-# open http://localhost:8888/
-```
+**Local preview:** open `index.html` directly (no fetches, so `file://` works), or
+`python3 -m http.server 8888`.
 
 **Common edits**
 
-- Change framework text: edit the relevant `content/*.md`. That is the whole change.
-- Change landing-page copy or card summaries: edit `index.html`.
-- Restyle: `styles.css` (colors are CSS variables in `:root`).
+- Change the standard's wording: edit `index.html`. There is no separate content file any more.
+- Restyle: the `:root` block at the top of the `<style>` section holds every colour and font.
 
-**Deploy:** commit and push to `main`. GitHub Pages rebuilds automatically. Confirm live by curling `https://gu-27.github.io/SBA-Student-ExternalClubs/content/option-a.md` (cache-bust with `?v=N`).
-
-**How this build was verified:** the Perspectives parser was tested in Node against the real markdown (all 3 lenses, 15 fields), and the full site was driven in a real browser with Playwright (tab click, arrow-key and Home/End navigation, panel visibility, equal card widths, zero console errors).
+**Deploy:** commit and push to `main`. GitHub Pages rebuilds automatically.
 
 ---
 
-## Open items and possible next steps
+## Open items
 
-None are required; the site is done. These are options if you want them later:
-
-- **Privacy:** the repo and site are public. If you want it visible only to specific people, switch to a private repo plus a Cloudflare Pages deploy behind Cloudflare Access.
-- **Custom domain:** GitHub Pages gives a `github.io` URL. For a branded URL, deploy on Cloudflare Pages (you own `inlandnw.ai`).
-- **Terminology consistency:** the docs still use "faculty champion" as the primary term elsewhere, so "faculty champion" and "faculty adviser" now coexist. Unify to one term if desired.
-- **"Vet with professional decision authority":** left as "professional". Change to "faculty adviser" if you decide that spot should name the adviser after all.
-- **Spelling:** currently "adviser". Switch everything to "advisor" if you prefer that spelling.
-- **First-load warmth:** GitHub Pages can be briefly slow to warm its CDN on the very first hit after a deploy; a refresh resolves it.
+- **`Due: [date]`** needs a real date before this is sent to group leaders.
+- **Terminology.** The page uses "advisor" throughout. Earlier drafts in this repo used
+  "adviser", and the wider SBA docs also use "faculty champion". Three terms for one role.
+- **Custom domain.** Still a `github.io` URL. Cloudflare Pages on a real domain is available if
+  this becomes something sent to students formally.
 
 ---
 
@@ -125,6 +136,8 @@ None are required; the site is done. These are options if you want them later:
 
 | Date | Change |
 |---|---|
+| 2026-10-14 | Rebuilt as a single **SBA Student Group Standards** page from John's finished source; retired the three review pages; moved to the official GU Typekit stack |
+| 2026-09-13 | `noindex, nofollow` added to every page (SBA/GSCG link-only sweep, from another session) |
 | 2026-07-28 | Renamed the role figure from "professional" to "faculty adviser" in the naming references |
 | 2026-07-28 | Replaced "adult" with "professional" throughout |
 | 2026-07-19 | Added the Perspectives lens view as a third peer card and a tabbed page |
