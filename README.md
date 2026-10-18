@@ -1,8 +1,11 @@
-# SBA Student Group Standards
+# SBA Student Organization Standards
 
-The School of Business Administration's standard for how student groups (clubs, consulting
-groups, and the like) operate: what they may do, what planning each level of work requires, and
-who approves it.
+The School of Business Administration's standard for how student organizations operate: what
+they may do, what planning each level of work requires, who approves it, how much students lead,
+and how to propose a new one.
+
+**Club** and **Group** are designations within that umbrella term. Tier 1 organizations are
+clubs, Tier 3 are groups, and Tier 2 is decided when the organization is proposed.
 
 **Live:** https://gu-27.github.io/SBA-Student-ExternalClubs/ — shared by direct link and
 carries `noindex`, so it will not turn up in search.
@@ -18,11 +21,16 @@ carries `noindex`, so it will not turn up in search.
     approves the client and the scope before anything is confirmed.
 - **The process.** The same five steps for every activity; what changes by tier is how much the
   plan has to cover. A tabbed view shows what each tier asks for.
-- **Roles and standards.** Students, faculty advisor, and the School of Business, plus the
+- **Leadership models.** Student-led, faculty-guided, or faculty-directed. The faculty advisor
+  decides which one an organization runs under, and says so openly.
+- **Roles and standards.** Students, faculty advisor, and School of Business leadership, plus the
   standards that hold at every tier: social media, email, name and logo, university resources,
   information and files, updates and records.
+- **Start a new organization.** Two proposal paths and the checklist of what a proposal includes,
+  with a button that copies the outline as plain text.
 
-The governing principle: **freedom is earned by showing a plan.**
+The governing principle: **freedom is earned by showing a plan.** It governs how much latitude an
+organization gets, and how much of the leadership the faculty advisor hands over.
 
 ## History
 

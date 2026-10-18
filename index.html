@@ -4,16 +4,26 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>SBA Student Group Standards</title>
-<meta name="description" content="How student groups operate in Gonzaga's School of Business Administration: three tiers of engagement, the approval process for each, and the roles and standards that apply at every tier.">
+<title>SBA Student Organization Standards</title>
+<meta name="description" content="How student organizations operate in Gonzaga's School of Business Administration: three tiers of engagement, club and group designations, leadership models, and how to propose a new organization.">
 
 <!-- ==========================================================
-     SBA STUDENT GROUP STANDARDS.
+     SBA STUDENT ORGANIZATION STANDARDS.
 
      Supersedes the three-option review site that lived here
      (Option A / Option B / Perspectives), which existed so
      administrators could choose a structure. The choice is made;
      this is the standard. The retired pages remain in git history.
+
+     TWO AUDIENCES: faculty and administration, and students. A
+     student should be able to read it top to bottom and then decide
+     at the bottom whether to propose a new organization, which is
+     why "Start a new organization" is the last section.
+
+     TERMINOLOGY: "student organization" is the umbrella term. CLUB
+     and GROUP are designations, not synonyms for it: Tier 1 is a
+     Club, Tier 3 is a Group, Tier 2 is either. So a bare lowercase
+     "group" in the copy is almost always a bug.
 
      BRAND: Gonzaga, academic/SBA identity. Navy #041E42 dominant,
      Gonzaga red #C8102E as accent, silver neutral. Official GU
@@ -102,7 +112,7 @@ h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 700; line-height: 1.05; mar
 .principle { font-family: var(--display); font-weight: 600; font-size: 1.2rem; line-height: 1.35; max-width: 44rem; border-left: 4px solid var(--red); padding-left: 1rem; }
 
 /* Entry cards */
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 .card { display: grid; gap: .5rem; align-content: start; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 8px; padding: 1.25rem; color: var(--fg); text-decoration: none; min-width: 0; transition: border-color .15s, transform .15s, box-shadow .15s; }
 .card:hover { border-color: var(--accent); box-shadow: 0 4px 18px rgba(4,30,66,.1); transform: translateY(-2px); }
 .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -181,11 +191,54 @@ summary span { grid-column: 1; color: var(--muted); font-size: .93rem; }
 .due { font-family: var(--mono); font-size: .9rem; color: var(--red); font-weight: 500; }
 footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
 
+/* Designation badge (Club / Group) */
+.desig { display: inline-block; font-family: var(--body); font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 999px; padding: .1rem .5rem; margin-left: .5rem; color: var(--muted); vertical-align: middle; white-space: nowrap; }
+.tab .desig { margin-left: .45rem; }
+.tab[aria-selected="true"] .desig { border-color: rgba(255,255,255,.45); color: #fff; }
+.panel h3 .desig, thead th .desig { font-size: .64rem; }
+
+/* Leadership models */
+.models { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.model { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 8px; padding: 1rem 1.1rem; display: grid; gap: .3rem; align-content: start; min-width: 0; }
+.model h4 { margin: 0; font-size: 1.05rem; }
+.model p { font-size: .95rem; color: var(--muted); }
+@media (max-width: 860px) { .models { grid-template-columns: 1fr; } }
+
+/* Tier 3 oversight areas */
+.oversight { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem .9rem; margin: 0; padding: 0; list-style: none; }
+.oversight li { font-size: .95rem; padding-left: 1.1rem; position: relative; }
+.oversight li::before { content: ''; position: absolute; left: 0; top: .62em; width: 5px; height: 5px; border-radius: 50%; background: var(--t3); }
+
+/* Start an organization: two paths */
+.paths { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.pathcard { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 8px; padding: 1.25rem; display: grid; gap: .5rem; align-content: start; min-width: 0; }
+.pathcard h3 { margin: 0; font-size: 1.15rem; }
+.pathcard .tag { font-size: .93rem; color: var(--muted); }
+.pathcard ol { margin: .2rem 0 0; padding-left: 1.3rem; display: grid; gap: .4rem; font-size: .95rem; }
+
+/* Proposal checklist */
+.proposal { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1.25rem; display: grid; gap: .8rem; }
+.proposal-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.proposal-head h3 { margin: 0; font-size: 1.15rem; }
+.copybtn { font-family: var(--body); font-weight: 700; font-size: .85rem; background: var(--navy); color: #fff; border: 1px solid var(--navy); border-radius: 999px; padding: .45rem 1rem; cursor: pointer; }
+.copybtn:hover { background: #06315f; }
+.copybtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.copystatus { font-size: .85rem; color: var(--muted); }
+.checklist { margin: 0; padding: 0; list-style: none; display: grid; gap: .45rem; }
+.checklist li { font-size: .97rem; padding-left: 1.6rem; position: relative; }
+.checklist li::before { content: ''; position: absolute; left: 0; top: .28em; width: .85rem; height: .85rem; border: 1px solid var(--muted); border-radius: 3px; }
+
+@media (max-width: 1080px) { .cards { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 860px) {
-  .cards, .roles { grid-template-columns: 1fr; }
+  .roles, .paths { grid-template-columns: 1fr; }
   .flow { grid-template-columns: 1fr 1fr; }
 }
-@media (max-width: 480px) { .flow { grid-template-columns: 1fr; } .panel { padding: 1.1rem; } }
+@media (max-width: 620px) { .cards { grid-template-columns: 1fr; } }
+@media (max-width: 480px) {
+  .flow { grid-template-columns: 1fr; }
+  .panel, .pathcard { padding: 1.1rem; }
+  .oversight { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -200,11 +253,12 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
 <div class="wrap">
 
   <header id="top">
-    <p class="label">School of Business Administration · Student groups</p>
-    <h1>How student groups operate</h1>
+    <p class="label">School of Business Administration · Student organizations</p>
+    <h1>How student organizations operate</h1>
     <div class="preamble">
-      <p>Student groups give business students real experience beyond the classroom. Events, speakers, trainings, and client projects are all ways to do that.</p>
-      <p>Leading a student group comes with responsibility. The work has two purposes, and they carry equal weight:</p>
+      <p>Student organizations give business students real experience beyond the classroom. Events, speakers, trainings, and client projects are all ways to do that.</p>
+      <p>An organization is designated a <strong>club</strong> or a <strong>group</strong> depending on how far its work reaches outside the business school. The tiers below explain the difference.</p>
+      <p>Leading a student organization comes with responsibility. The work has two purposes, and they carry equal weight:</p>
       <div class="twofold">
         <div>
           <h3>Protect the school</h3>
@@ -215,9 +269,10 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
           <p>Set students up to succeed, build real skills, and protect their own reputations.</p>
         </div>
       </div>
-      <p>The further a group reaches outside the business school, the more is at stake for both. This framework scales planning and oversight to match.</p>
-      <p>It comes from experience. Over several years of student groups bringing in speakers and doing client work, most problems traced back to the same few causes: acting before planning, unclear roles, and work the advisor didn't know about. A group that learns from that history can last. One that ignores it usually doesn't.</p>
+      <p>The further an organization reaches outside the business school, the more is at stake for both. This framework scales planning and oversight to match.</p>
+      <p>It comes from experience. Over several years of student organizations bringing in speakers and doing client work, most problems traced back to the same few causes: acting before planning, unclear roles, and work the advisor didn't know about. An organization that learns from that history can last. One that ignores it usually doesn't.</p>
       <p class="principle">Freedom is earned by showing a plan. Plans don't need to be perfect. They need to show you thought it through before acting.</p>
+      <p>That principle also sets how much students lead. The faculty advisor decides the leadership model for the organization and says so openly. Planning and a track record earn more latitude, and the advisor grants it.</p>
     </div>
   </header>
 
@@ -240,6 +295,12 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
       <p>Who does what, and the rules for social, email, branding, resources, and information at every tier.</p>
       <span class="go">See roles and standards ↓</span>
     </a>
+    <a class="card" href="#start">
+      <p class="label">For students</p>
+      <h2>Start an organization</h2>
+      <p>Two ways to propose a new club or group, and what the proposal has to include.</p>
+      <span class="go">See how to propose ↓</span>
+    </a>
   </nav>
 
   <!-- TIERS -->
@@ -254,16 +315,28 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
         <thead>
           <tr>
             <th scope="col"><span class="sr-only">Dimension</span></th>
-            <th scope="col"><span class="tierdot c1"></span>Tier 1 · Internal</th>
-            <th scope="col"><span class="tierdot c2"></span>Tier 2 · External exposure</th>
-            <th scope="col"><span class="tierdot c3"></span>Tier 3 · External business</th>
+            <th scope="col"><span class="tierdot c1"></span>Tier 1 · Internal<span class="desig">Club</span></th>
+            <th scope="col"><span class="tierdot c2"></span>Tier 2 · External exposure<span class="desig">Club or Group</span></th>
+            <th scope="col"><span class="tierdot c3"></span>Tier 3 · External business<span class="desig">Group</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <th scope="row">Designation</th>
+            <td>Club</td>
+            <td>Club or Group, decided when the organization is proposed by the faculty advisor and SBA leadership, based on scope and how often it works with outside people</td>
+            <td>Group</td>
+          </tr>
+          <tr>
+            <th scope="row">Leadership model</th>
+            <td>Student-led</td>
+            <td>Student-led or faculty-guided, the advisor's call</td>
+            <td>Faculty-directed by default. The advisor may delegate specific functions to students as they show readiness.</td>
+          </tr>
+          <tr>
             <th scope="row">What it is</th>
             <td>Students working with students inside the business school</td>
-            <td>Bringing outside people in, or putting the group's work in public</td>
+            <td>Bringing outside people in, or putting the organization's work in public</td>
             <td>Doing work for an outside organization</td>
           </tr>
           <tr>
@@ -300,6 +373,23 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
       </table>
     </div>
     <p class="note">The roles and standards below apply at every tier.</p>
+
+    <h3 class="sub">The three leadership models</h3>
+    <p class="note">How much students lead is decided by the faculty advisor, in the open, and written down. Greater exposure means greater risk, and that risk sits with the faculty member, so the advisor decides how much of it to take on personally. Some organizations are ready to lead. Some are not yet. The level can change as an organization shows readiness.</p>
+    <div class="models">
+      <div class="model">
+        <h4>Student-led</h4>
+        <p>Students run it. The advisor is informed and approves anything external.</p>
+      </div>
+      <div class="model">
+        <h4>Faculty-guided</h4>
+        <p>Students run day to day. The advisor reviews key decisions and work before it goes out.</p>
+      </div>
+      <div class="model">
+        <h4>Faculty-directed</h4>
+        <p>The advisor leads. Students take on specific responsibilities as the advisor delegates them.</p>
+      </div>
+    </div>
     <a class="back" href="#top">↑ Back to top</a>
   </section>
 
@@ -320,14 +410,14 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
 
     <div class="tabs">
       <div class="tablist" role="tablist" aria-label="Choose a tier">
-        <button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true" tabindex="0" type="button"><span class="tierdot c1"></span>Tier 1 · Internal</button>
-        <button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" type="button"><span class="tierdot c2"></span>Tier 2 · External exposure</button>
-        <button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1" type="button"><span class="tierdot c3"></span>Tier 3 · External business</button>
+        <button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true" tabindex="0" type="button"><span class="tierdot c1"></span>Tier 1 · Internal<span class="desig">Club</span></button>
+        <button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" type="button"><span class="tierdot c2"></span>Tier 2 · External exposure<span class="desig">Club or Group</span></button>
+        <button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1" type="button"><span class="tierdot c3"></span>Tier 3 · External business<span class="desig">Group</span></button>
       </div>
 
       <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0">
-        <h3>Tier 1 · Internal</h3>
-        <p class="intro">Students working with students. This is where most of a group's work with the wider student body happens, including events the School of Business relies on.</p>
+        <h3>Tier 1 · Internal<span class="desig">Club</span></h3>
+        <p class="intro">Students working with students. This is where most of an organization's work with the wider student body happens, including events the School of Business relies on. Tier 1 organizations are clubs, and they are student-led.</p>
         <div class="cols">
           <div>
             <h4>Your plan covers</h4>
@@ -349,13 +439,13 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
       </div>
 
       <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
-        <h3>Tier 2 · External exposure</h3>
-        <p class="intro">The first step outside the school. When you bring in a guest speaker or trainer, you are using university resources and inviting someone in on the school's behalf, so there is an approval process with lead time.</p>
+        <h3>Tier 2 · External exposure<span class="desig">Club or Group</span></h3>
+        <p class="intro">The first step outside the school. When you bring in a guest speaker or trainer, you are using university resources and inviting someone in on the school's behalf, so there is an approval process with lead time. A Tier 2 organization is a club or a group, and runs student-led or faculty-guided. The advisor makes both calls.</p>
         <div class="cols">
           <div>
             <h4>Your plan covers</h4>
             <ul>
-              <li>Who the speaker or trainer is and why they fit the group's mission</li>
+              <li>Who the speaker or trainer is and why they fit the organization's mission</li>
               <li>Date, format, audience, and room</li>
               <li>How you'll promote it</li>
               <li>Who hosts and handles communication with the guest</li>
@@ -374,13 +464,13 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
       </div>
 
       <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0" hidden>
-        <h3>Tier 3 · External business</h3>
-        <p class="intro">Doing work for an outside organization. This tier carries the most risk and the most responsibility, for the school, for the client, and for the students whose names are on the work.</p>
+        <h3>Tier 3 · External business<span class="desig">Group</span></h3>
+        <p class="intro">Doing work for an outside organization. This tier carries the most risk and the most responsibility, for the school, for the client, and for the students whose names are on the work. A Tier 3 organization is a group, and is faculty-directed by default. The advisor may delegate specific functions to students as they show readiness.</p>
         <div class="cols">
           <div>
             <h4>Your plan covers</h4>
             <ul>
-              <li>The client, and why the project fits the group's mission</li>
+              <li>The client, and why the project fits the organization's mission</li>
               <li>Scope: the problem, the deliverables, and what's out of scope</li>
               <li>The team, and why they're ready for this work</li>
               <li>One named point of contact and a meeting schedule</li>
@@ -399,7 +489,24 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
             </ul>
           </div>
         </div>
-        <div class="callout"><strong>NDAs and agreements.</strong> No student signs an NDA, contract, or agreement for the group. Any request for one goes to the advisor first and then to university counsel. Confidential client material stays in university-owned storage.</div>
+        <div>
+          <h4>What the faculty advisor oversees</h4>
+          <p class="intro">Each area below is gauged by the faculty advisor. For each one the advisor decides whether to direct it, review it, or delegate it to students. Without faculty oversight of these areas, the risk falls on the students, the faculty member, and the school.</p>
+          <ul class="oversight">
+            <li>Outreach to prospective clients</li>
+            <li>Client selection</li>
+            <li>Selecting students for projects</li>
+            <li>Onboarding students</li>
+            <li>Training students</li>
+            <li>Client engagements and meetings</li>
+            <li>Presentation vetting and feedback</li>
+            <li>Quality assurance before anything reaches the client</li>
+            <li>Client relations</li>
+            <li>Organization sustainability: leadership succession, continuity, records</li>
+            <li>Funding</li>
+          </ul>
+        </div>
+        <div class="callout"><strong>NDAs and agreements.</strong> No student signs an NDA, contract, or agreement for the organization. Any request for one goes to the advisor first and then to university counsel. Confidential client material stays in university-owned storage.</div>
       </div>
     </div>
     <a class="back" href="#top">↑ Back to top</a>
@@ -410,18 +517,19 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
     <div class="sec-head">
       <p class="label">Always applies</p>
       <h2>Roles and standards</h2>
-      <p>No student group in the School of Business is entirely student-driven. These roles and standards hold at every tier.</p>
+      <p>No student organization in the School of Business is entirely student-driven. How much students lead is set by the faculty advisor. These roles and standards hold at every tier.</p>
     </div>
 
     <div class="roles">
       <div class="role">
         <p class="label">Students</p>
-        <h3>Lead and do the work</h3>
-        <p class="tag">Student leaders run the group day to day.</p>
+        <h3>Do the work and grow into leadership</h3>
+        <p class="tag">Students lead to the degree the faculty advisor decides, and earn more of it by showing a plan and a track record.</p>
         <ul>
           <li>Plan activities and submit plans before acting</li>
           <li>Draft outreach, posts, and deliverables</li>
           <li>Recommend clients and speakers</li>
+          <li>Take on the responsibilities the advisor delegates</li>
           <li>Keep the advisor updated on a regular schedule, without being asked</li>
           <li>Represent the school professionally</li>
         </ul>
@@ -430,27 +538,32 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
       <div class="role">
         <p class="label">Faculty advisor</p>
         <h3>Final say on external work</h3>
-        <p class="tag">The university employee accountable for the group.</p>
+        <p class="tag">The university employee accountable for the organization.</p>
         <ul>
+          <li>Decides the leadership model and how much students lead</li>
+          <li>Carries the risk of the organization's external work, and decides how much to take on</li>
           <li>Approves plans, clients, and scopes</li>
           <li>Submits ZAG Activities requests for speakers</li>
           <li>Reviews deliverables before they reach a client</li>
           <li>Routes NDAs and agreements to counsel</li>
-          <li>Connects the group to school resources and partners</li>
+          <li>Connects the organization to school resources and partners</li>
         </ul>
-        <p class="tag">The advisor's job is the approvals and the judgment calls. Students do the work.</p>
+        <p class="tag">The advisor sets the leadership model in the open and writes it down, so everyone knows where the line sits.</p>
       </div>
       <div class="role">
-        <p class="label">School of Business</p>
+        <p class="label">School of Business leadership</p>
         <h3>Owns the name and the resources</h3>
         <p class="tag">Administration, the dean's office, and marketing.</p>
         <ul>
+          <li>Approves new student organizations</li>
+          <li>Confirms fit with the School of Business vision</li>
+          <li>Can recruit a faculty advisor for an approved proposal</li>
           <li>The dean approves outside speakers</li>
           <li>The marketing coordinator oversees branded communication</li>
-          <li>Sets the requirements every student group follows</li>
+          <li>Sets the requirements every student organization follows</li>
           <li>Provides rooms, systems, funding, and promotion</li>
         </ul>
-        <p class="tag">The group uses the school's name and resources, so the school sets the standards for using them.</p>
+        <p class="tag">The organization uses the school's name and resources, so the school sets the standards for using them.</p>
       </div>
     </div>
 
@@ -459,16 +572,16 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
       <details>
         <summary><b>Social media and promotion</b><span>Run through and branded with the School of Business.</span></summary>
         <div class="detail"><ul>
-          <li>The advisor has access to every group account</li>
+          <li>The advisor has access to every organization account</li>
           <li>A posting calendar each semester, shared with the advisor and the marketing coordinator</li>
-          <li>Posts that use Gonzaga branding or identify the group with the university are signed off by a university employee before they go out</li>
+          <li>Posts that use Gonzaga branding or identify the organization with the university are signed off by a university employee before they go out</li>
           <li>No client work is posted without the client's and the advisor's approval</li>
         </ul></div>
       </details>
       <details>
         <summary><b>Email and outreach</b><span>Who sends, from what account, and what it says.</span></summary>
         <div class="detail"><ul>
-          <li>Send from a group or Gonzaga account, never a personal one</li>
+          <li>Send from an organization or Gonzaga account, never a personal one</li>
           <li>A short list of approved senders</li>
           <li>Standard templates for outreach to clients, alumni, and speakers, approved once by the advisor</li>
           <li>The advisor is copied on client and partner threads</li>
@@ -480,7 +593,7 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
         <div class="detail"><ul>
           <li>Use university branding only as the School of Business allows</li>
           <li>Materials that carry the Gonzaga name are reviewed before release</li>
-          <li>Group names that reference Gonzaga or the School of Business stay with the school</li>
+          <li>Organization names that reference Gonzaga or the School of Business stay with the school</li>
         </ul></div>
       </details>
       <details>
@@ -496,8 +609,8 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
         <div class="detail"><ul>
           <li>Client files live in university-owned storage, not personal drives</li>
           <li>Confidential client material is shared only with the project team and the advisor</li>
-          <li>When a student leaves or a project ends, access is removed and files stay with the group</li>
-          <li>Accounts and passwords belong to the group, not to individuals</li>
+          <li>When a student leaves or a project ends, access is removed and files stay with the organization</li>
+          <li>Accounts and passwords belong to the organization, not to individuals</li>
         </ul></div>
       </details>
       <details>
@@ -513,16 +626,76 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
   </section>
 
   <div class="next">
-    <h2>Next step</h2>
+    <h2>Next step for an existing organization</h2>
     <ol>
-      <li>Tell the advisor which tiers your group will operate in this year.</li>
-      <li>Send the plan for each tier you choose.</li>
-      <li>For each current client, send the client contact, the student team, the email account in use, and current status.</li>
+      <li>Confirm your organization's tier and designation with your faculty advisor.</li>
+      <li>Your advisor confirms the leadership model.</li>
+      <li>Send the plan for each tier you operate in.</li>
+      <li>For any current client work: client contact, student team, email account in use, current status.</li>
     </ol>
-    <p class="due">Due: [date]</p>
+    <p class="due">Due: set by your faculty advisor</p>
   </div>
 
-  <footer>Questions go to your group's faculty advisor. This page reflects School of Business requirements for student groups that work outside the business school.</footer>
+  <!-- START AN ORGANIZATION -->
+  <section id="start">
+    <div class="sec-head">
+      <p class="label">For students</p>
+      <h2>Start a new organization</h2>
+      <p>Students who want to start a club or a group submit a proposal. There are two paths, depending on whether you already have a faculty member in mind.</p>
+    </div>
+
+    <div class="paths">
+      <div class="pathcard">
+        <p class="label">Path A</p>
+        <h3>You have a faculty member in mind</h3>
+        <p class="tag">You know who you want as the advisor, so you start with them.</p>
+        <ol>
+          <li>Students bring the idea to the faculty member.</li>
+          <li>The faculty member assesses fit, student readiness, time, and how much risk they are willing to take on.</li>
+          <li>If they agree, faculty and students develop the proposal together.</li>
+          <li>The faculty member and students submit it to SBA leadership for approval.</li>
+        </ol>
+      </div>
+      <div class="pathcard">
+        <p class="label">Path B</p>
+        <h3>You don't have a faculty member yet</h3>
+        <p class="tag">You start with the school, and the school looks for an advisor.</p>
+        <ol>
+          <li>Students propose the organization and its tier to SBA leadership (to be confirmed).</li>
+          <li>SBA leadership decides whether it fits the School of Business vision.</li>
+          <li>If it fits, SBA leadership looks for a faculty advisor.</li>
+          <li>The faculty member reviews the terms of engagement and accepts or declines.</li>
+          <li>Faculty and students finalize the proposal.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="proposal">
+      <div class="proposal-head">
+        <h3 id="proposal-heading">What a proposal includes</h3>
+        <button class="copybtn" type="button" id="copy-outline" aria-describedby="copy-status">Copy outline</button>
+      </div>
+      <p class="copystatus" id="copy-status" role="status" aria-live="polite"></p>
+      <ul class="checklist" id="proposal-list">
+        <li>Mission, and how it fits the School of Business vision</li>
+        <li>Proposed tier and designation (club or group)</li>
+        <li>Planned activities</li>
+        <li>How it differs from existing organizations</li>
+        <li>Student leaders and their experience</li>
+        <li>Faculty advisor, or "none yet"</li>
+        <li>Proposed leadership model</li>
+        <li>Plans for the tier: outreach, communication, social media, information handling, and for Tier 2 the event approval process</li>
+        <li>For Tier 3: how each faculty oversight area will be handled</li>
+        <li>Training and development plan for members</li>
+        <li>Sustainability: leadership succession and records</li>
+        <li>Funding needs</li>
+        <li>First-semester plan</li>
+      </ul>
+    </div>
+    <a class="back" href="#top">↑ Back to top</a>
+  </section>
+
+  <footer>Questions go to your organization's faculty advisor. This page reflects School of Business requirements for student organizations in the School of Business.</footer>
 </div>
 
 <script>
@@ -547,6 +720,47 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
       if (e.key === 'End') n = tabs[tabs.length - 1];
       if (n) { e.preventDefault(); select(n, true); }
     });
+  });
+})();
+
+/* Copy the proposal outline as plain text. Built from the list itself so the button and the
+   page can never drift apart. Clipboard access fails on insecure origins and when permission
+   is refused, so the fallback selects the list and tells the reader to copy it. */
+(function () {
+  var btn = document.getElementById('copy-outline');
+  var list = document.getElementById('proposal-list');
+  var status = document.getElementById('copy-status');
+  if (!btn || !list || !status) return;
+
+  function outline() {
+    var lines = ['What a proposal includes', ''];
+    Array.prototype.forEach.call(list.querySelectorAll('li'), function (li) {
+      lines.push('[ ] ' + li.textContent.trim());
+    });
+    return lines.join('\n');
+  }
+
+  function selectList() {
+    try {
+      var r = document.createRange();
+      r.selectNodeContents(list);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(r);
+      status.textContent = 'Could not copy automatically. The outline is selected, so copy it now.';
+    } catch (e) {
+      status.textContent = 'Could not copy. Select the list and copy it manually.';
+    }
+  }
+
+  btn.addEventListener('click', function () {
+    var text = outline();
+    if (!navigator.clipboard || !navigator.clipboard.writeText) { selectList(); return; }
+    navigator.clipboard.writeText(text).then(function () {
+      status.textContent = 'Outline copied.';
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = 'Copy outline'; }, 2500);
+    }, selectList);
   });
 })();
 </script>

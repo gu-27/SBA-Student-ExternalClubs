@@ -3,7 +3,7 @@
 Working notes and current state for this repo, so the build can be picked back up later.
 For the public-facing description, see [README.md](README.md).
 
-**Last updated:** 2026-10-14
+**Last updated:** 2026-10-18
 
 ---
 
@@ -11,12 +11,72 @@ For the public-facing description, see [README.md](README.md).
 
 | | |
 |---|---|
-| **Purpose** | The School of Business Administration's standard for how student groups operate. One page, published for student group leaders and their advisors. |
+| **Purpose** | The School of Business Administration's standard for how student **organizations** operate. One page, two audiences: faculty/administration, and students deciding whether to propose a new organization. |
 | **Live** | https://gu-27.github.io/SBA-Student-ExternalClubs/ |
 | **Repo** | gu-27/SBA-Student-ExternalClubs (GitHub) |
 | **Visibility** | Public repo. The page is **`noindex, nofollow`** — link-only, per the SBA/GSCG convention set 2026-09-13. |
 | **Hosting** | GitHub Pages, source = `main` branch root, auto-rebuilds on push |
 | **Status** | Complete and deployed. |
+
+---
+
+## What changed on 2026-10-18
+
+A content update. The design system, `noindex`, and the accessibility work (keyboard tabs,
+visible focus, the table's hidden corner header) were all kept as they were.
+
+**1. Terminology.** "Student organization" is now the umbrella term. **Club** and **Group** are
+*designations* under it, decided by tier:
+
+| Tier | Designation |
+|---|---|
+| Tier 1 · Internal | Club |
+| Tier 2 · External exposure | Club or Group, decided at proposal time by the advisor and SBA leadership |
+| Tier 3 · External business | Group |
+
+This is the easiest thing to get wrong when editing. **A bare lowercase "group" in the copy is
+almost always a bug** now, because it reads as the designation. The two that survive on purpose
+are in the Tier 2 and Tier 3 panel intros, where the designation is what is meant. A note to
+that effect sits in the HTML header comment.
+
+**2. Leadership is a faculty decision, stated openly.** The page no longer implies students lead
+by default. Three models are defined (student-led, faculty-guided, faculty-directed), a
+**Leadership model** row was added to the tier table, and the models are spelled out under the
+table with the reasoning: greater exposure means greater risk, that risk sits with the faculty
+member, so the advisor decides how much to take on. Defaults are Tier 1 student-led, Tier 2
+either, Tier 3 faculty-directed with delegation as readiness shows.
+
+Tied back to the existing principle: a paragraph after "Freedom is earned by showing a plan" now
+says the principle also governs how much students lead.
+
+**3. Tier 3 gained "What the faculty advisor oversees"** — eleven areas, each of which the
+advisor either directs, reviews, or delegates. One plain sentence carries the why. All existing
+Tier 3 rules were kept, including the NDA callout.
+
+**4. Roles.** Students reframed from "Lead and do the work" to "Do the work and grow into
+leadership". The advisor gained the leadership-model decision and the risk call. The third card
+is now "School of Business leadership" and gained approving new organizations, confirming fit
+with the vision, and recruiting an advisor for an approved proposal.
+
+**5. New final section, "Start a new organization"**, plus a fourth entry card. Two paths side by
+side (faculty member already in mind, or not), then the proposal checklist with a **Copy
+outline** button. It is last on the page on purpose: a student reads top to bottom, gets the
+whole picture, and ends on how to propose one.
+
+**6. The Next step box** is now explicitly for *existing* organizations, and `Due: [date]` became
+`Due: set by your faculty advisor`, which removes the last placeholder.
+
+### Implementation notes
+
+- **The copy button builds its text from the list in the DOM**, not a second hard-coded copy, so
+  the button and the page cannot drift apart. Clipboard access fails on insecure origins and when
+  permission is refused, so there is a fallback that selects the list and says so in a
+  `role="status"` line.
+- **"SBA leadership (to be confirmed)"** is rendered exactly that way in Path B. It is the one
+  unresolved fact on the page.
+- **No individuals are named anywhere**, by instruction.
+- **Card grid** is 4 across, stepping 4 → 2 (≤1080px) → 1 (≤620px). `.paths` and `.models` stack
+  at 860px; `.oversight` is two columns down to 480px.
 
 ---
 
@@ -56,8 +116,9 @@ README.md    Repo purpose + structure
 NOTES.md     This file
 ```
 
-**Page shape:** preamble (the two purposes, then the governing principle) → three entry cards →
-three full sections (Tiers, Process, Roles and standards) → next step → footer.
+**Page shape:** preamble (the two purposes, the governing principle, and how it sets leadership)
+→ four entry cards → four full sections (Tiers, Process, Roles and standards, Start a new
+organization), with the Next step box for existing organizations between the last two → footer.
 
 ---
 
@@ -124,7 +185,11 @@ fix:
 
 ## Open items
 
-- **`Due: [date]`** needs a real date before this is sent to group leaders.
+- **"SBA leadership (to be confirmed)"** in Path B needs confirming. Most likely the dean's
+  office, but the page says "to be confirmed" rather than guessing.
+- **Tier 2's designation call** (club or group) is described as made by the advisor and SBA
+  leadership together at proposal time. If there is a tie-breaker when they disagree, it is not
+  written down anywhere.
 - **Terminology.** The page uses "advisor" throughout. Earlier drafts in this repo used
   "adviser", and the wider SBA docs also use "faculty champion". Three terms for one role.
 - **Custom domain.** Still a `github.io` URL. Cloudflare Pages on a real domain is available if
@@ -136,6 +201,7 @@ fix:
 
 | Date | Change |
 |---|---|
+| 2026-10-18 | Club/Group designations, leadership models, Tier 3 faculty oversight areas, roles rewrite, new "Start a new organization" section with a copy-outline button |
 | 2026-10-14 | Rebuilt as a single **SBA Student Group Standards** page from John's finished source; retired the three review pages; moved to the official GU Typekit stack |
 | 2026-09-13 | `noindex, nofollow` added to every page (SBA/GSCG link-only sweep, from another session) |
 | 2026-07-28 | Renamed the role figure from "professional" to "faculty adviser" in the naming references |
