@@ -227,6 +227,9 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
 .checklist { margin: 0; padding: 0; list-style: none; display: grid; gap: .45rem; }
 .checklist li { font-size: .97rem; padding-left: 1.6rem; position: relative; }
 .checklist li::before { content: ''; position: absolute; left: 0; top: .28em; width: .85rem; height: .85rem; border: 1px solid var(--muted); border-radius: 3px; }
+.concerns { margin: 0; padding-left: 1.3rem; display: grid; gap: .35rem; font-size: .97rem; }
+.concerns li { padding-left: .15rem; }
+.proposal .tag { font-size: .95rem; color: var(--muted); }
 
 @media (max-width: 1080px) { .cards { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 860px) {
@@ -324,7 +327,7 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
           <tr>
             <th scope="row">Designation</th>
             <td>Club</td>
-            <td>Club or Group, decided when the organization is proposed by the faculty advisor and SBA leadership, based on scope and how often it works with outside people</td>
+            <td>Club or Group. Set during the proposal review by the faculty advisor and SBA leadership, based on scope, activities, and how often the organization works with outside people. Students do not decide designation.</td>
             <td>Group</td>
           </tr>
           <tr>
@@ -440,7 +443,7 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
 
       <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
         <h3>Tier 2 · External exposure<span class="desig">Club or Group</span></h3>
-        <p class="intro">The first step outside the school. When you bring in a guest speaker or trainer, you are using university resources and inviting someone in on the school's behalf, so there is an approval process with lead time. A Tier 2 organization is a club or a group, and runs student-led or faculty-guided. The advisor makes both calls.</p>
+        <p class="intro">The first step outside the school. When you bring in a guest speaker or trainer, you are using university resources and inviting someone in on the school's behalf, so there is an approval process with lead time. A Tier 2 organization is designated a club or a group during the proposal review, by the faculty advisor and SBA leadership. Students do not decide designation. The organization runs student-led or faculty-guided, and the advisor decides which.</p>
         <div class="cols">
           <div>
             <h4>Your plan covers</h4>
@@ -460,6 +463,16 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
               <li>Submit the plan to the advisor at least one to two weeks before the event. A request the week of the event won't work.</li>
             </ul>
           </div>
+        </div>
+        <div>
+          <h4>Concerns about designation or tier</h4>
+          <p class="intro">The same process covers a concern about the leadership model, or a request to change tier.</p>
+          <ol class="concerns">
+            <li>Students raise concerns with their faculty advisor.</li>
+            <li>The advisor evaluates the concern against the organization's scope, activities, and level of outside exposure.</li>
+            <li>If needed, the advisor brings it to SBA leadership for review.</li>
+            <li>SBA leadership's decision is final.</li>
+          </ol>
         </div>
       </div>
 
@@ -691,6 +704,17 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line
         <li>Funding needs</li>
         <li>First-semester plan</li>
       </ul>
+    </div>
+
+    <div class="proposal">
+      <h3>Concerns about designation or tier</h3>
+      <p class="tag">Designation is set during the proposal review by the faculty advisor and SBA leadership. Students do not decide it. The same process covers a concern about the leadership model, or a request to change tier.</p>
+      <ol class="concerns">
+        <li>Students raise concerns with their faculty advisor.</li>
+        <li>The advisor evaluates the concern against the organization's scope, activities, and level of outside exposure.</li>
+        <li>If needed, the advisor brings it to SBA leadership for review.</li>
+        <li>SBA leadership's decision is final.</li>
+      </ol>
     </div>
     <a class="back" href="#top">↑ Back to top</a>
   </section>

@@ -3,7 +3,7 @@
 Working notes and current state for this repo, so the build can be picked back up later.
 For the public-facing description, see [README.md](README.md).
 
-**Last updated:** 2026-10-18
+**Last updated:** 2026-10-18 (second update same day)
 
 ---
 
@@ -20,6 +20,35 @@ For the public-facing description, see [README.md](README.md).
 
 ---
 
+## Decisions
+
+### Designation, tier, and leadership model: who decides, and what students do about it (2026-10-18)
+
+**Designation is set during the proposal review**, by the faculty advisor and SBA leadership
+together, based on scope, activities, and how often the organization works with outside people.
+**Students do not decide designation.** The same holds for tier and for the leadership model.
+
+When a student disagrees, there is an escalation path and it ends:
+
+1. Students raise concerns with their faculty advisor.
+2. The advisor evaluates the concern against the organization's scope, activities, and level of
+   outside exposure.
+3. If needed, the advisor brings it to SBA leadership for review.
+4. SBA leadership's decision is final.
+
+The same four steps cover a concern about the leadership model and a request to change tier.
+
+**There is deliberately no voting and no tie-break mechanism** (John, 2026-10-18). The earlier
+note in this file asked what happens if the advisor and SBA leadership disagree, which framed
+them as two parties needing a referee. They are not. SBA leadership decides, and step 4 says so.
+Do not add a mechanism here.
+
+The process appears twice on the page, with identical steps: in the Tier 2 panel, where a
+student meets the designation question, and in the Start a new organization section, where they
+meet it again while writing a proposal. Keep the two copies in step.
+
+---
+
 ## What changed on 2026-10-18
 
 A content update. The design system, `noindex`, and the accessibility work (keyboard tabs,
@@ -31,7 +60,7 @@ visible focus, the table's hidden corner header) were all kept as they were.
 | Tier | Designation |
 |---|---|
 | Tier 1 · Internal | Club |
-| Tier 2 · External exposure | Club or Group, decided at proposal time by the advisor and SBA leadership |
+| Tier 2 · External exposure | Club or Group, set during the proposal review by the advisor and SBA leadership (see Decisions) |
 | Tier 3 · External business | Group |
 
 This is the easiest thing to get wrong when editing. **A bare lowercase "group" in the copy is
@@ -187,9 +216,7 @@ fix:
 
 - **"SBA leadership (to be confirmed)"** in Path B needs confirming. Most likely the dean's
   office, but the page says "to be confirmed" rather than guessing.
-- **Tier 2's designation call** (club or group) is described as made by the advisor and SBA
-  leadership together at proposal time. If there is a tie-breaker when they disagree, it is not
-  written down anywhere.
+*(The Tier 2 designation question that sat here is answered. See Decisions below.)*
 - **Terminology.** The page uses "advisor" throughout. Earlier drafts in this repo used
   "adviser", and the wider SBA docs also use "faculty champion". Three terms for one role.
 - **Custom domain.** Still a `github.io` URL. Cloudflare Pages on a real domain is available if
@@ -201,6 +228,7 @@ fix:
 
 | Date | Change |
 |---|---|
+| 2026-10-18 | Designation set at proposal review, students do not decide it; added the "Concerns about designation or tier" escalation to the Tier 2 panel and the Start section; no voting or tie-break |
 | 2026-10-18 | Club/Group designations, leadership models, Tier 3 faculty oversight areas, roles rewrite, new "Start a new organization" section with a copy-outline button |
 | 2026-10-14 | Rebuilt as a single **SBA Student Group Standards** page from John's finished source; retired the three review pages; moved to the official GU Typekit stack |
 | 2026-09-13 | `noindex, nofollow` added to every page (SBA/GSCG link-only sweep, from another session) |
