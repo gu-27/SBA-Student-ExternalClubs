@@ -1,9 +1,18 @@
-# Build Notes: SBA Student Group Standards
+# Build Notes: SBA Student Organization Standards
 
-Working notes and current state for this repo, so the build can be picked back up later.
-For the public-facing description, see [README.md](README.md).
+> ## RETIRED. The page moved on 2026-10-20.
+>
+> **It now lives at https://gu-sba.pages.dev/student-organizations/**, built from
+> `~/projects/gu-sba/student-organizations/`. This repo serves a redirect stub and nothing
+> else. Edit the page at its new home. Changes made here are not published.
+>
+> Everything below is kept as the build history of the page up to the move. It is accurate
+> about how the page was built and why. It is no longer accurate about where it lives.
 
-**Last updated:** 2026-10-18 (second update same day)
+Working notes from when this repo published the page. For the public-facing description, see
+[README.md](README.md).
+
+**Last updated:** 2026-10-20 (retired)
 
 ---
 
@@ -12,11 +21,12 @@ For the public-facing description, see [README.md](README.md).
 | | |
 |---|---|
 | **Purpose** | The School of Business Administration's standard for how student **organizations** operate. One page, two audiences: faculty/administration, and students deciding whether to propose a new organization. |
-| **Live** | https://gu-27.github.io/SBA-Student-ExternalClubs/ |
-| **Repo** | gu-27/SBA-Student-ExternalClubs (GitHub) |
-| **Visibility** | Public repo. The page is **`noindex, nofollow`** — link-only, per the SBA/GSCG convention set 2026-09-13. |
-| **Hosting** | GitHub Pages, source = `main` branch root, auto-rebuilds on push |
-| **Status** | Complete and deployed. |
+| **Live** | https://gu-sba.pages.dev/student-organizations/ (moved 2026-10-20) |
+| **Was live at** | https://gu-27.github.io/SBA-Student-ExternalClubs/, now a redirect stub |
+| **Page source** | `~/projects/gu-sba/student-organizations/index.html` |
+| **This repo** | gu-27/SBA-Student-ExternalClubs. Retired. Redirect only. |
+| **Visibility** | The page is **`noindex, nofollow`**, link-only, per the SBA/GSCG convention set 2026-09-13. Verified still true at the new home on 2026-10-20. |
+| **Status** | Retired. All content carried over to the new home, verified live. |
 
 ---
 

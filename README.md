@@ -7,8 +7,14 @@ and how to propose a new one.
 **Club** and **Group** are designations within that umbrella term. Tier 1 organizations are
 clubs, Tier 3 are groups, and Tier 2 is decided when the organization is proposed.
 
-**Live:** https://gu-27.github.io/SBA-Student-ExternalClubs/ — shared by direct link and
-carries `noindex`, so it will not turn up in search.
+> **This repo is retired.** The page moved on 2026-10-20 to
+> **https://gu-sba.pages.dev/student-organizations/**, built from
+> `~/projects/gu-sba/student-organizations/`. What is left here is a redirect stub. Edit the
+> page at its new home, because changes made here are not published.
+
+**Live:** https://gu-sba.pages.dev/student-organizations/
+
+It is shared by direct link and carries `noindex`, so it will not turn up in search.
 
 ## What the page covers
 
